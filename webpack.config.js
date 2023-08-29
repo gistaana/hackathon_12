@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new Dotenv({
-            path: "./.env.prod",
+            path: "./.env.public",
             systemvars: true,
         }),
     ],
