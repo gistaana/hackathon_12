@@ -1,9 +1,5 @@
 from secret import FIREBASE_ROOT_COLLECTION_NAME
 
-# load in public secrets
-from dotenv import load_dotenv
-from os import getenv
-
 # connect to database
 import firebase_admin 
 from firebase_admin import firestore, credentials
