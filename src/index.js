@@ -8,7 +8,7 @@ const form = document.querySelector("#form-main");
 const actionStatusBox = document.querySelector("#action-status-pane");
 
 function updateActionStatusBox(isError, email) {
-    const messageBody = `added ${email} to our list`;
+    const messageBody = `added email "${email}" to our list`;
     const messageStart = isError ? "Unsuccessfully" : "Successfully";
     const messageEnd = isError ? ":(" : ":)";
 
@@ -33,6 +33,10 @@ form.addEventListener("submit", async (evt) => {
 
     try {
         await addData(userEmail, userName);
+
+        email.value = "";
+        name.value = "";
+
         console.log(`added email=${userEmail} username=${userName}`);
     } catch (error) {
         console.log(error);
