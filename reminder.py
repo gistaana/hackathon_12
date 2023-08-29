@@ -1,9 +1,12 @@
 import requests
+
+from secret import API_KEY
+
 #location of all the assignments
 url = "https://courses.ianapplebaum.com/syllabus/4"
 
 headers = {
-    "Authorization": "Bearer {Sl9TiE5yh4JAKIJVKl7V7FpafWf03AmoSrcT2SeW}",
+    "Authorization": f"Bearer {API_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json"
 }
