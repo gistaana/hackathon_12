@@ -51,6 +51,8 @@ body {
 
     min-width: 100vw;
     min-height: 100vh;
+
+    padding: 16px;
 }
 
 .form-main {
@@ -87,4 +89,19 @@ body {
 
 label.form-label {
     font-weight: 600;
+	font-size: larger;
+}
+
+.db-error {
+    color: red;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+}
+
+.db-success {
+    color: green;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
 }

@@ -7,7 +7,7 @@
         <script src="./dist/bundle.js" defer="true"></script>
     </head>
     <body class="body-main">
-        <form action="#" onsubmit="return false" class="form-main">
+        <form action="#" id="form-main" class="form-main">
             <h1>
                 CIS 4398 <br />
                 Email Course Reminders Email List
@@ -21,7 +21,9 @@
             <label class="form-label" for="email">Email:</label>
             <input type="email" id="email" name="email" required /><br /><br />
 
-            <input type="submit" class="submit-btn" value="Submit" />
+            <p id="action-status-pane" class=""></p>
+
+            <input type="submit" id="submit-btn" class="submit-btn" value="Submit" />
         </form>
     </body>
 </html>
