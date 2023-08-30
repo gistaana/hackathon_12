@@ -8,7 +8,9 @@ password = 'wbuhfzguowizlode'
 receiver = 'tuk87239@temple.edu'
 
 subject_line = 'Hey! Just wanted to remind you that...'
-body = '' #something generated here
+body = """
+Testing. Testing. Can anyone hear me?
+"""
 
 email = EmailMessage()
 email['From'] = sender
