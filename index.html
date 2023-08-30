@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="./dist/bundle.js" defer="true"></script>
+    </head>
+    <body class="body-main">
+        <form action="#" id="form-main" class="form-main">
+            <h1>
+                CIS 4398 <br />
+                Email Course Reminders Email List
+            </h1>
+            <p>Please provide your name and email to get emails about upcomming assignments and reminders</p>
+            <hr />
+            <br />
+            <label class="form-label" for="name">Name:</label>
+            <input type="text" id="name" name="name" required /><br /><br />
+
+            <label class="form-label" for="email">Email:</label>
+            <input type="email" id="email" name="email" required /><br /><br />
+
+            <p id="action-status-pane" class=""></p>
+
+            <input type="submit" id="submit-btn" class="submit-btn" value="Submit" />
+        </form>
+    </body>
+</html>

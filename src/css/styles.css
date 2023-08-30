@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(270deg, #246655, #3024db, #d341e3);
+    background-size: 600% 600%;
+
+    -webkit-animation: anim-bg 12s ease infinite;
+    -moz-animation: anim-bg 12s ease infinite;
+    animation: anim-bg 12s ease infinite;
+}
+
+@-webkit-keyframes anim-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@-moz-keyframes anim-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes anim-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.body-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    padding: 16px;
+}
+
+.form-main {
+    border-radius: 15px;
+    background: #fff;
+    padding: 24px 24px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.submit-btn {
+    background-color: #4caf50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.submit-btn {
+    transition-duration: 0.4s;
+}
+
+.submit-btn:hover {
+    background-color: #2faa4b; /* Green */
+    color: white;
+}
+
+label.form-label {
+    font-weight: 600;
+	font-size: larger;
+}
+
+.db-error {
+    color: red;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+}
+
+.db-success {
+    color: green;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+}
