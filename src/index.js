@@ -7,11 +7,6 @@ const name = document.querySelector("#name");
 const form = document.querySelector("#form-main");
 const actionStatusBox = document.querySelector("#action-status-pane");
 
-if (window.location.pathname === "/hackathon_12/unsub" && new URLSearchParams(window.location.search).get("email")) {
-    await removeData(new URLSearchParams(window.location.search).get("email"));
-    window.location.assign("/hackathon_12");
-}
-
 function updateActionStatusBox(isError, email) {
     const messageBody = `added email "${email}" to our list`;
     const messageStart = isError ? "Unsuccessfully" : "Successfully";
