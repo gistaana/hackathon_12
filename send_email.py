@@ -1,6 +1,5 @@
 from create_email_template import create_email_template
 import time
-import os
 import ssl
 import smtplib
 from email.message import EmailMessage
@@ -15,16 +14,18 @@ FC = FirebaseConnection()
 while True:    
     email_list = FC.get_all_email_data()
 
-    for email in email_list:
-        receiver = email.get("email", "")
+    for email_data in email_list:
+        receiver = email_data.get("email", "")
 
         subject_line = 'Hey! Just wanted to remind you that...'
         body = create_email_template(receiver)
+        
         email = EmailMessage()
         email['From'] = sender
         email['To'] = receiver
         email['Subject'] = subject_line
-        email.set_content(body)
+        email.set_content(body, subtype='html')
+
         context = ssl.create_default_context()
 
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
