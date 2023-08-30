@@ -12,13 +12,14 @@ delay = 60
 FC = FirebaseConnection()
 
 while True:    
-    email_list = FC.get_all_email_data()
+    email_list = [{"email": "parthnpatel@temple.edu", "name": "Parth"}]
 
     for email_data in email_list:
         receiver = email_data.get("email", "")
+        name = email_data.get("name", "")
 
         subject_line = 'Hey! Just wanted to remind you that...'
-        body = create_email_template(receiver)
+        body = create_email_template(receiver, name)
         
         email = EmailMessage()
         email['From'] = sender

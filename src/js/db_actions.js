@@ -1,4 +1,4 @@
-import { doc, setDoc } from "firebase/firestore";
+import { deleteDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase.config";
 
 export function addData(email, name) {
@@ -10,4 +10,8 @@ export function addData(email, name) {
         },
         { merge: true }
     );
+}
+
+export function removeData(email) {
+    return deleteDoc(doc(db, process.env.FIREBASE_ROOT_COLLECTION_NAME, email));
 }
