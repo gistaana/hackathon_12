@@ -9,11 +9,12 @@ from db_connection import FirebaseConnection
 sender = 'encouragingreminders2023@gmail.com'
 password = 'wbuhfzguowizlode'
 
-FC = FirebaseConnection()
-email_list = FC.get_all_email_data()
 delay = 60
+FC = FirebaseConnection()
 
 while True:    
+    email_list = FC.get_all_email_data()
+
     for email in email_list:
         receiver = email.get("email", "")
 
