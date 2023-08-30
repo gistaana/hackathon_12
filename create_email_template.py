@@ -12,7 +12,7 @@ DEFAULT_MESSAGE = """
 </html>
 """
 
-def create_email_template(receiver, name) -> str:
+def create_email_template(name) -> str:
     """Creates an HTML email template.
     
     ! Assumes that there still exists at least 1 upcoming event, and that we're still in the Fall 2023 semester timeframe.
@@ -35,6 +35,7 @@ def create_email_template(receiver, name) -> str:
         date_obj = datetime.strptime(e["event_date"], "%Y-%m-%d").date()
         if date_obj > today:
             event = e
+            break
 
 
     if event is None:
@@ -54,11 +55,14 @@ def create_email_template(receiver, name) -> str:
         <div style="margin:auto; width=50%;">
             <h2>Projects in Computer Science Fall 2023 Reminders!</h2>
             <hr>
-            <p>Hi {name}!</p>
-            <p>A friendly reminder for an upcoming {event["class_type"]}:</p>
-            <h3>{event["event_name"]}!
+            <p>
+                Hi {name}!
+                <br>A friendly reminder for an upcoming {event["class_type"]}:
+            </p>
+            <h3>
+                {event["event_name"]}!
                 <br>{date_obj.strftime("%b %d, %Y")}
-                <br>{event["event_description"]}
+                <br><span style="font-weight:normal;">{event["event_description"]}</span>
             </h3>
             <p style="font-weight:bold;"><br>~ {get_encouraging_message()} ~</p>
             <hr>
