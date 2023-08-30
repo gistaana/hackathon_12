@@ -35,11 +35,16 @@ def create_email_template(receiver, name) -> str:
         date_obj = datetime.strptime(e["event_date"], "%Y-%m-%d").date()
         if date_obj > today:
             event = e
+
+
+    if event is None:
+        return DEFAULT_MESSAGE
     
     # fix the event dict fields
     date_obj = datetime.strptime(event["event_date"], "%Y-%m-%d").date() # convert date from str to datetime.date obj
     if event["class_type"] == "N/A":
         event["class_type"] == "event"
+
     
     # return html code for email body
     return f'''
@@ -64,5 +69,3 @@ def create_email_template(receiver, name) -> str:
     </body>
 </html>
 '''
-
-print(create_email_template("Jennifer"))
