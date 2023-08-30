@@ -10,12 +10,12 @@ sender = 'encouragingreminders2023@gmail.com'
 password = 'wbuhfzguowizlode'
 
 FC = FirebaseConnection()
-email_list = FC.get_email()
+email_list = FC.get_all_email_data()
 delay = 60
 
-while True:
+while True:    
     for email in email_list:
-        receiver = email
+        receiver = email.get("email", "")
 
         subject_line = 'Hey! Just wanted to remind you that...'
         body = create_email_template(receiver)
@@ -32,3 +32,4 @@ while True:
 
     print("Emails sent!")
     time.sleep(delay)
+
