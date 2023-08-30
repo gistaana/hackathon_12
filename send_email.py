@@ -12,8 +12,7 @@ delay = 60
 FC = FirebaseConnection()
 
 while True:    
-    # email_list = FC.get_all_email_data()
-    email_list = [{'email': 'tuf20394@temple.edu', 'name': 'Jennifer'}, {'email': 'mochacci@gmail.com', 'name': 'Cookie'}]
+    email_list = FC.get_all_email_data()
 
     for email_data in email_list:
         receiver = email_data.get("email", "")
