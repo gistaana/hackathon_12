@@ -27,5 +27,5 @@ module.exports = {
             systemvars: true,
         }),
     ],
-    mode: "development",
+    mode: "production",
 };

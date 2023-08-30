@@ -30,8 +30,3 @@ class FirebaseConnection():
         collection_docs: List[DocumentSnapshot] = self.email_collection.get()
         
         return [docs.to_dict() for docs in collection_docs]
-
-
-
-
-print(FirebaseConnection().get_all_email_data())
