@@ -35,33 +35,34 @@ def create_email_template(receiver, name) -> str:
         date_obj = datetime.strptime(e["event_date"], "%Y-%m-%d").date()
         if date_obj > today:
             event = e
-            break
-
-    # if we have passed each day
-    if event is None:
-        return DEFAULT_MESSAGE
     
-    # convert the event date str into a date obj
-    date_obj = datetime.strptime(event["event_date"], "%Y-%m-%d").date()
+    # fix the event dict fields
+    date_obj = datetime.strptime(event["event_date"], "%Y-%m-%d").date() # convert date from str to datetime.date obj
+    if event["class_type"] == "N/A":
+        event["class_type"] == "event"
     
     # return html code for email body
     return f'''
 <!DOCTYPE html>
 <html>
-    <body style="text-align: center;">
-        <h2>Projects in Computer Science Fall 2023 Reminders!</h2>
-        <hr>
-        <p>Hi {name}!</p>
-        <p>A friendly reminder for an upcoming {event["class_type"]}:</p>
-        <h3>{event["event_name"]}!
-            <br>{date_obj.strftime("%b %d, %Y")}
-        </h3>
-        <p>{event["event_description"]}</p>
-        <p style="font-weight:bold;"><br>{get_encouraging_message()}</p>
-        <hr>
-        <small>If you wish to unsubscribe to these reminders, visit <a href="https://gistaana.github.io/hackathon_12/unsub?email={receiver}">the unsubscribe page</a>.
-            <br>Do <b>NOT</b> reply this email! It will go nowhere!
-        </small>
+    <body style="text-align:center;">
+        <div style="margin:auto; width=50%;">
+            <h2>Projects in Computer Science Fall 2023 Reminders!</h2>
+            <hr>
+            <p>Hi {name}!</p>
+            <p>A friendly reminder for an upcoming {event["class_type"]}:</p>
+            <h3>{event["event_name"]}!
+                <br>{date_obj.strftime("%b %d, %Y")}
+                <br>{event["event_description"]}
+            </h3>
+            <p style="font-weight:bold;"><br>~ {get_encouraging_message()} ~</p>
+            <hr>
+            <small>If you wish to unsubscribe to these reminders, please contact one of the creators, and we'll take your name off.
+                <br>Do <b>NOT</b> reply this email! It will go nowhere!
+            </small>
+        </div>
     </body>
 </html>
 '''
+
+print(create_email_template("Jennifer"))
